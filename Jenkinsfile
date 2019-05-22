@@ -1,4 +1,15 @@
 pipeline {
+      agent {
+    kubernetes {
+      label 'declarative'
+      containerTemplate {
+        name 'maven'
+        image 'maven:3.5.0-jdk-8-alpine'
+        ttyEnabled true
+        command 'cat'
+      }
+    }
+}
     agent any
 
     stages {
